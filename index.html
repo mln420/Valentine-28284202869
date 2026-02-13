@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Theja (My love) ❤️</title>
+    <style>
+        /* --- GORGEOUS & CLEAN THEME --- */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+        body {
+            background-color: #fdfbf7;
+            color: #4a4a4a;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* MUSIC OVERLAY (TAP TO START) */
+        #start-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+        .start-btn {
+            background: #d6336c;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        /* FLOATING HEARTS BACKGROUND */
+        .hearts-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            background-color: rgba(255, 182, 193, 0.3);
+            width: 20px; height: 20px;
+            transform: rotate(45deg);
+            animation: floatHeart 15s infinite linear;
+        }
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background-color: inherit;
+        }
+        .heart::before { top: -10px; left: 0; }
+        .heart::after { top: 0; left: -10px; }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(45deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-img-container {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            padding: 8px;
+            background: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            animation: pulse 3s infinite ease-in-out;
+            margin-bottom: 25px;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #d6336c;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* MEMORY LANE */
+        .memory-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+            width: 260px;
+        }
+        .polaroid:nth-child(even) { transform: rotate(2deg); }
+        .polaroid:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+        .polaroid img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            filter: sepia(10%);
+        }
+
+        .caption {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
+            color: #555;
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1;
+        }
+
+        /* LETTER SECTION */
+        .letter-section {
+            padding: 80px 20px;
+            background: #fff0f3;
+            display: flex;
+            justify-content: center;
+        }
+
+        .letter-paper {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .letter-paper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+        }
+
+        .letter-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #444;
+            line-height: 2;
+            text-align: left;
+        }
+
+        .letter-text p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: #d6336c;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* PROPOSAL SECTION */
+        .proposal-section {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 40px 20px;
+        }
+
+        .big-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #d6336c;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .btn-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        .btn-yes { background: #d6336c; color: white; z-index: 5; }
+        .btn-yes:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(214, 51, 108, 0.4); }
+        .btn-no { background: #f0f0f0; color: #555; }
+
+        /* SUCCESS OVERLAY */
+        #success {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .movie-card {
+            background: #fff9fc;
+            padding: 40px 30px;
+            border: 2px dashed #d6336c;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @media(max-width: 600px) {
+            h1 { font-size: 3rem; }
+            .hero-img-container { width: 220px; height: 220px; }
+            .polaroid { width: 100%; max-width: 300px; }
+            .letter-paper { padding: 40px 25px; }
+            .letter-text { font-size: 1.15rem; line-height: 1.8; }
+            .big-question { font-size: 2.5rem; }
+            .btn-container { flex-direction: column; height: 160px; gap: 20px; }
+            button { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- START OVERLAY (REQUIRED FOR MUSIC) -->
+    <div id="start-overlay" onclick="startExperience()">
+        <h1 style="font-size: 2.5rem; color: #333;">For my thejakutty ❤️</h1>
+        <div class="start-btn">Tap to Open</div>
+    </div>
+
+    <!-- BACKGROUND AUDIO (Hidden) -->
+    <audio id="bgMusic" loop>
+        <!-- Using a free copyright-safe link directly -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=piano-moment-11176.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- BACKGROUND HEARTS -->
+    <div class="hearts-bg" id="heartsContainer"></div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-img-container">
+            <img src="her-photo.jpg" alt="Braj Rani" class="hero-img">
+        </div>
+        <h1>Hey love</h1>
+        <p class="subtitle">Just you, me, and our story.</p>
+        <div style="margin-top: 50px; font-size: 2rem; animation: bounce 2s infinite; opacity: 0.5;">⬇</div>
+    </div>
+
+    <!-- MEMORY LANE -->
+    <div class="memory-section">
+        <h2 class="section-title">Moments That Matter</h2>
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="us1.jpg" alt="Memory 1">
+                <div class="caption">The Beginning</div>
+            </div>
+            <div class="polaroid">
+                <img src="us2.jpg" alt="Memory 2">
+                <div class="caption">The Madness</div>
+            </div>
+            <div class="polaroid">
+                <img src="us3.jpg" alt="Memory 3">
+                <div class="caption">The Bond</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LETTER SECTION -->
+    <div class="letter-section">
+        <div class="letter-paper">
+            <div class="letter-text">
+                <p><strong>Dear Thejakutty,</strong></p>
+                <p>how fast time moves.can you believe its already our second valentinesday together.
+How cute is it that its also our second love anniversary.Rand varsham munne e day I made the best decision of my life.Time really moves fast with you❤️</p>
+                
+                <p>These past two years you have been with me through everything.
+Every highs and every lows i can always count on you .Your presence made me go on even when i was at my lowest.I messed up a lot of times still you forgave me and chose me over and over. You dont know how much that means to me
+ </p>
+                <p>Maybe you dont realize it but you have made my life so much better by just being there. You have been my happiness in my sorrows.
+You have been my motivation when i was giving up.
+Ni illarnel enik ippo oru debar koode kittiyene😅
+I was at my lowest debar okke kazhinj jnrs koode classil poy ottakk irikkumbo. Enik povanonn onnum illarunnu pashe everytime i was feeling down you cheered me up vndum paranj vittu.
+Ente jeevithathil njan evde nkilum ethiyal its because of you.
+You always help me to make me realise whats right and whats wrong.
+Ente parents  ayitt njn kooduthal aduthath polum ni vannitt ahn. You made a huge impact on my life and idk how to thank you enough for that.
+</p>
+                <p>Every moments we spend together, every train journey we went together,every time i look into your eyes,every time i hold your hands,every time we hugged, every time we kissed,every time we fight,every walks i fall in love with you again and again.
+You make me the happiest
+You showed even i can love someone this much </p>
+                 
+                  <p> I really wanted to be there with you today but as you know its not easy and i am really sorry for it.I really want this long distance to end and be there with you every day🥲
+Also i promise to always love you the same and always be there for you</p> 
+
+                  <p class="highlight">"HAPPY ANNIVERSARY AND HAPPY VALENTINES DAY ."</p>
+
+                <p style="text-align: right; margin-top: 40px;"><strong>- Yours, Harsh</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROPOSAL SECTION -->
+    <div class="proposal-section">
+        <div class="big-question">Will you be my valentine forever?</div>
+        <div class="btn-container">
+            <button class="btn-yes" onclick="showSuccess()">Yes, Always ❤️</button>
+            <button class="btn-no" id="noBtn" onmouseover="moveBtn()" ontouchstart="moveBtn()">No</button>
+        </div>
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+    <div id="success">
+        <h1 style="color: #d6336c; font-size: 3rem; margin-bottom: 20px; font-family: 'Great Vibes';">I Knew It! ❤️</h1>
+        <div class="movie-card">
+            <h2 style="font-family: 'Montserrat'; font-size: 1.4rem; margin-bottom: 20px; color: #333;">🎟️ Official Date Invite</h2>
+            <div style="text-align: left; font-size: 1.1rem; color: #555; line-height: 2;">
+                📍 <strong>Location:</strong> banglore<br>
+                📅 <strong>When:</strong> After 26th February<br>
+                🎬 <strong>Plan:</strong> Private Movie Date<br>
+                🍿 <strong>drinks & Popcorn:</strong> On Me
+            </div>
+        </div>
+        <p style="margin-top: 50px; font-size: 1.2rem; color: #888;">Now look up and smile. 😉</p>
+    </div>
+
+    <script>
+        // --- Start Experience (Music) ---
+        function startExperience() {
+            document.getElementById('start-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('start-overlay').style.display = 'none';
+            }, 500);
+            
+            // Play Music
+            var audio = document.getElementById("bgMusic");
+            audio.volume = 0.4; // 40% volume (not too loud)
+            audio.play().catch(error => console.log("Audio play failed:", error));
+        }
+
+        // --- Create Floating Hearts ---
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            for(let i=0; i<15; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.opacity = Math.random();
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // --- Running Button ---
+        function moveBtn() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // --- Success ---
+        function showSuccess() {
+            document.getElementById('success').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
